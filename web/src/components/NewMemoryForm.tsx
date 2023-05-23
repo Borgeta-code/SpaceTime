@@ -83,7 +83,7 @@ export function NewMemoryForm() {
         <input
           type="date"
           name="createData"
-          className="h-7 rounded border-0 border-gray-400 bg-gray-700 text-gray-100 focus:ring-0"
+          className="h-7 w-32 rounded border-0 border-gray-400 bg-gray-600 text-gray-100 focus:ring-0"
         />
       </div>
 

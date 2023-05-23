@@ -58,7 +58,10 @@ export default async function Home() {
             </p>
             <div className="flex items-center justify-between">
               <Link
-                href={`/memories/${memory.id}`}
+                href={{
+                  pathname: '/memories/edit',
+                  query: { id: memory.id, token },
+                }}
                 className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"
               >
                 Ler mais
