@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import Delbutton from '../components/Delbutton'
 
 dayjs.locale(ptBR)
 
@@ -42,7 +43,7 @@ export default async function Home() {
       {memories.map((memory) => {
         return (
           <div key={memory.id} className="space-y-4">
-            <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-purple-700">
+            <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-gray-100">
               {dayjs(memory.createdAt).format('D[ de ]MMMM[, ]YYYY')}
             </time>
             <Image
@@ -55,13 +56,17 @@ export default async function Home() {
             <p className="text-lg leading-relaxed text-gray-100">
               {memory.excerpt}
             </p>
-            <Link
-              href={`/memories/${memory.id}`}
-              className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"
-            >
-              Ler mais
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="flex items-center justify-between">
+              <Link
+                href={`/memories/${memory.id}`}
+                className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"
+              >
+                Ler mais
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+
+              <Delbutton id={memory.id} />
+            </div>
           </div>
         )
       })}
