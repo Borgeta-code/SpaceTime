@@ -2,7 +2,7 @@ import { EmptyMemories } from '@/components/EmptyMemories'
 import { api } from '@/lib/api'
 import dayjs from 'dayjs'
 import ptBR from 'dayjs/locale/pt-br'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, PencilIcon } from 'lucide-react'
 import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -43,9 +43,26 @@ export default async function Home() {
       {memories.map((memory) => {
         return (
           <div key={memory.id} className="space-y-4">
-            <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-gray-100">
-              {dayjs(memory.createdAt).format('D[ de ]MMMM[, ]YYYY')}
-            </time>
+            <div className="flex justify-between">
+              <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-gray-100">
+                {dayjs(memory.createdAt).format('D[ de ]MMMM[, ]YYYY')}
+              </time>
+
+              <Link
+                href={{
+                  pathname: '/memories/edit',
+                  query: { id: memory.id, token },
+                }}
+              >
+                <label
+                  htmlFor=""
+                  className="flex cursor-pointer items-center gap-1.5 text-sm text-gray-200 hover:text-gray-100"
+                >
+                  <PencilIcon className="h-4 w-4" />
+                  Editar memória
+                </label>
+              </Link>
+            </div>
             <Image
               src={memory.coverUrl}
               alt=""
@@ -59,7 +76,7 @@ export default async function Home() {
             <div className="flex items-center justify-between">
               <Link
                 href={{
-                  pathname: '/memories/edit',
+                  pathname: '/memories/view',
                   query: { id: memory.id, token },
                 }}
                 className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"

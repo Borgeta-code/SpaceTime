@@ -74,7 +74,7 @@ export function NewMemoryForm() {
             type="checkbox"
             name="isPublic"
             id="isPublic"
-            value="true"
+            value="false"
             className="h-4 w-4 rounded border-gray-400 bg-gray-700 text-purple-500"
           />
           Tornar memória pública
@@ -83,7 +83,7 @@ export function NewMemoryForm() {
         <input
           type="date"
           name="createData"
-          className="h-7 w-32 rounded border-0 border-gray-400 bg-gray-600 text-gray-100 focus:ring-0"
+          className="h-7 w-36 rounded border-0 border-gray-400 bg-gray-700 text-gray-100 focus:ring-0"
         />
       </div>
 
@@ -93,7 +93,7 @@ export function NewMemoryForm() {
         name="content"
         spellCheck={false}
         className="w-full flex-1 resize-none rounded border-0 bg-transparent p-0 text-lg leading-relaxed text-gray-100 placeholder:text-gray-400 focus:ring-0"
-        placeholder="Fique livre para adicionar fotos, vídeos e relatos sobre essa experiência que você quer lembrar para sempre."
+        placeholder="Adicione fotos, vídeos e relatos sobre essa experiência que você quer lembrar para sempre."
       />
       <button
         type="submit"

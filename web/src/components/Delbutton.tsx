@@ -25,8 +25,12 @@ export default function Delbutton(id: any) {
   }
 
   return (
-    <span onClick={handleDelete}>
-      <Trash className="h-4 w-4 cursor-pointer text-red-700" />
-    </span>
+    <label
+      onClick={handleDelete}
+      className="flex cursor-pointer items-center gap-1.5 text-sm text-red-700 hover:text-red-500"
+    >
+      <Trash className="h-4 w-4" />
+      Excluir memória
+    </label>
   )
 }
